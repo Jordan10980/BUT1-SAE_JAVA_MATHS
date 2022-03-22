@@ -1,5 +1,4 @@
-import java.util.ArrayList;
-import java.util.Arrays;
+
 
 public class GrapheMA {
 	
@@ -8,9 +7,8 @@ public class GrapheMA {
 	
 	public GrapheMA(int noeuds) {
 		matriceAdj = new Boolean[noeuds][noeuds];
-		this.matriceAdj = initialiser();
 		this.nbNoeuds = noeuds;
-		
+		this.initialiser();
 	}
 	
 	public Boolean[][] initialiser() {
@@ -25,12 +23,16 @@ public class GrapheMA {
 	
 	public void ajouterArc(int nLigne, int nColonne) {
 		if(taille(nLigne, nColonne)) {
-			matriceAdj[nLigne][nColonne] = true;
+			matriceAdj[nLigne - 1][nColonne - 1] = true;
 		}
 	}
 	
 	public boolean aArc (int nLigne, int nColonne) {
-		return matriceAdj[nLigne][nColonne];
+		boolean aArc = false;
+		if (this.matriceAdj[nLigne - 1][nColonne - 1] == true) {
+			aArc = true;
+		}
+		return aArc;
 		
 	}
 	
@@ -43,7 +45,7 @@ public class GrapheMA {
 	}
 	
 	public boolean taille(int nLigne, int nColonne) {
-		if(nLigne < this.nbNoeuds && nColonne < this.nbNoeuds) 
+		if(nLigne - 1 <= this.nbNoeuds && nColonne - 1 <= this.nbNoeuds) 
 			return true;
 		
 		else
