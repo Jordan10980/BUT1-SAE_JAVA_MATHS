@@ -14,22 +14,22 @@ public class GrapheMA {
 	public Boolean[][] initialiser() {
 		for(int i = 0; i < this.nbNoeuds; i++) {
 			for(int j = 0; j < this.nbNoeuds; j++) {
-				matriceAdj[i][j] = false;
+				getMatriceAdj()[i][j] = false;
 			}
 		}
-		return matriceAdj;
+		return getMatriceAdj();
 	}
 	
 	
 	public void ajouterArc(int nLigne, int nColonne) {
 		if(taille(nLigne, nColonne)) {
-			matriceAdj[nLigne - 1][nColonne - 1] = true;
+			getMatriceAdj()[nLigne - 1][nColonne - 1] = true;
 		}
 	}
 	
 	public boolean aArc (int nLigne, int nColonne) {
 		boolean aArc = false;
-		if (this.matriceAdj[nLigne - 1][nColonne - 1] == true) {
+		if (this.getMatriceAdj()[nLigne - 1][nColonne - 1] == true) {
 			aArc = true;
 		}
 		return aArc;
@@ -55,7 +55,7 @@ public class GrapheMA {
 	public int dOut (int nLigne) {
 		int res = 0;
 		for(int i = 0; i < this.nbNoeuds; i++) {
-			if(matriceAdj[nLigne - 1][i] == true) {
+			if(getMatriceAdj()[nLigne - 1][i] == true) {
 				res++;
 			}
 		}
@@ -66,7 +66,7 @@ public class GrapheMA {
 	public int dIn(int nColonne) {
 		int res = 0;
 		for(int i = 0; i < this.nbNoeuds; i++) {
-			if(matriceAdj[i][nColonne - 1] == true) {
+			if(getMatriceAdj()[i][nColonne - 1] == true) {
 				res++;
 			}
 		}
@@ -79,7 +79,7 @@ public class GrapheMA {
 		String chaine = "";
 		for(int i = 0; i < this.nbNoeuds; i++) {
 			for(int j = 0; j < this.nbNoeuds; j++){
-				if(matriceAdj[i][j] == true) {
+				if(getMatriceAdj()[i][j] == true) {
 					chaine += "1 ";
 				}
 				else {
@@ -89,6 +89,10 @@ public class GrapheMA {
 			chaine += "\n";
 		}
 		return chaine;
+	}
+
+	public Boolean [][] getMatriceAdj() {
+		return matriceAdj;
 	}
 
 	
