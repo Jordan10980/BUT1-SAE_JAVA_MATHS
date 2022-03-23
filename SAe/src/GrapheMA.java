@@ -55,7 +55,7 @@ public class GrapheMA {
 	public int dOut (int nLigne) {
 		int res = 0;
 		for(int i = 0; i < this.nbNoeuds; i++) {
-			if(matriceAdj[nLigne][i] == true) {
+			if(matriceAdj[nLigne - 1][i] == true) {
 				res++;
 			}
 		}
@@ -66,7 +66,7 @@ public class GrapheMA {
 	public int dIn(int nColonne) {
 		int res = 0;
 		for(int i = 0; i < this.nbNoeuds; i++) {
-			if(matriceAdj[i][nColonne] == true) {
+			if(matriceAdj[i][nColonne - 1] == true) {
 				res++;
 			}
 		}
@@ -79,7 +79,12 @@ public class GrapheMA {
 		String chaine = "";
 		for(int i = 0; i < this.nbNoeuds; i++) {
 			for(int j = 0; j < this.nbNoeuds; j++){
-				chaine += matriceAdj[i][j] + " ";
+				if(matriceAdj[i][j] == true) {
+					chaine += "1 ";
+				}
+				else {
+					chaine += "0 ";
+				}
 			}
 			chaine += "\n";
 		}

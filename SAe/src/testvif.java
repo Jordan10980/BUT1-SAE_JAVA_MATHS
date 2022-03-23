@@ -20,9 +20,10 @@ public class testvif {
 		System.out.println(g.aArc(4,4));
 		System.out.println(g.aArc(5,1));
 		
-		// Problème ici
 		System.out.println(g.aArc(4,1));
 		System.out.println(g.aArc(6,6));
+		
+		System.out.println(g.dOut(1));
 
 	}
 

@@ -23,7 +23,7 @@ class GrapheMATest {
 		assertFalse(g.aArc(4,1));
 		assertFalse(g.aArc(6,6));
 		
-		assertEquals(4,g.dOut(1)); // degré sortant
+		assertEquals(4,g.dOut(1)); // degré sortant 
 		assertEquals(1,g.dOut(2));
 		assertEquals(0,g.dOut(3));
 		assertEquals(1,g.dOut(5));
