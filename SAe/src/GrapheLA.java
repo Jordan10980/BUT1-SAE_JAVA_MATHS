@@ -39,10 +39,6 @@ public class GrapheLA {
 		return nbNoeuds;
 	}
 	
-	public void setNbNoeuds(int nbNoeuds) {
-		this.nbNoeuds = nbNoeuds;
-	}
-	
 	public boolean taille(int nLigne, int nColonne) {
 		if(nLigne - 1 <= this.nbNoeuds && nColonne - 1 <= this.nbNoeuds) 
 			return true;

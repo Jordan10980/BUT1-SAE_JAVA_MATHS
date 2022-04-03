@@ -40,10 +40,6 @@ public class GrapheMA {
 		return nbNoeuds;
 	}
 	
-	public void setNbNoeuds(int nbNoeuds) {
-		this.nbNoeuds = nbNoeuds;
-	}
-	
 	public boolean taille(int nLigne, int nColonne) {
 		if(nLigne - 1 <= this.nbNoeuds && nColonne - 1 <= this.nbNoeuds) 
 			return true;
@@ -95,10 +91,4 @@ public class GrapheMA {
 		return matriceAdj;
 	}
 
-	
-	
-	
-//	dOut
-//	dIn
-//
 	}
