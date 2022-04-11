@@ -1,6 +1,4 @@
-
-
-public class GrapheMA {
+public class GrapheMA implements IGraph {
 	
 	private Boolean [][]  matriceAdj;
 	private int nbNoeuds;
@@ -11,6 +9,7 @@ public class GrapheMA {
 		this.initialiser();
 	}
 	
+
 	public Boolean[][] initialiser() {
 		for(int i = 0; i < this.nbNoeuds; i++) {
 			for(int j = 0; j < this.nbNoeuds; j++) {
@@ -32,9 +31,9 @@ public class GrapheMA {
 		if (this.getMatriceAdj()[nLigne - 1][nColonne - 1] == true) {
 			aArc = true;
 		}
-		return aArc;
-		
+		return aArc;	
 	}
+	
 	
 	public int getNbNoeuds() {
 		return nbNoeuds;
@@ -43,10 +42,10 @@ public class GrapheMA {
 	public boolean taille(int nLigne, int nColonne) {
 		if(nLigne - 1 <= this.nbNoeuds && nColonne - 1 <= this.nbNoeuds) 
 			return true;
-		
 		else
 			return false;
 	}
+	
 	
 	public int dOut (int nLigne) {
 		int res = 0;
@@ -59,6 +58,7 @@ public class GrapheMA {
 		return res;
 	}
 	
+	
 	public int dIn(int nColonne) {
 		int res = 0;
 		for(int i = 0; i < this.nbNoeuds; i++) {
@@ -66,9 +66,9 @@ public class GrapheMA {
 				res++;
 			}
 		}
-		
 		return res;
 	}
+
 
 	@Override
 	public String toString() {
@@ -87,8 +87,9 @@ public class GrapheMA {
 		return chaine;
 	}
 
+	
 	public Boolean [][] getMatriceAdj() {
 		return matriceAdj;
 	}
 
-	}
+}
