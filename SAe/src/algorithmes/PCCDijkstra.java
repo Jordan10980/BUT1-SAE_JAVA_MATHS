@@ -75,8 +75,16 @@ public class PCCDijkstra {
 	}
 
 	private List<String> recupererSuccesseur(String sommetEnCours, List<String> listSommetsParcourus) {
-		// TODO Auto-generated method stub
-		return null;
+		List<String> listSuccesseurs = graphe.listSuccesseurs(sommetEnCours);
+		List<String> listSuccesseursNonParcourus = new ArrayList<String>(); 
+		for(int i = 0; i < listSuccesseurs.size(); i++) {
+			for(int j = 0; j < listSommetsParcourus.size(); j++) {
+				if(listSuccesseurs.get(i) != listSommetsParcourus.get(j)) {
+					listSuccesseursNonParcourus.add(listSuccesseurs.get(i));
+				}
+			}
+		}
+		return listSuccesseursNonParcourus;
 	}
 
 	private boolean estDejaParcouru(String noeud, List<String> noeudsParcourus) {
