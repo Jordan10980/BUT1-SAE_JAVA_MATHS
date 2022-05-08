@@ -62,15 +62,15 @@ public class PCCDijkstra {
 		listSommetsParcourus.add(sommetEnCours);
 	}
 
-	private String choisirProchainSommetEnCours(Map<String, Pair<String, Integer>> listSommetsDistance,
-			List<String> listSommetsParcourus) {
+	private String choisirProchainSommetEnCours(Map<String, Pair<String, Integer>> listSommetsDistance, List<String> listSommetsParcourus) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	private void mettreAJourListSommetsDistance(Map<String, Pair<String, Integer>> listSommetsDistance,
-			String sommetEnCours, List<String> listSuccesseursNonParcourus) {
-		// TODO Auto-generated method stub
+	private void mettreAJourListSommetsDistance(Map<String, Pair<String, Integer>> listSommetsDistance, String sommetEnCours, List<String> listSuccesseursNonParcourus) {
+		for(int i = 0; i < graphe.listSuccesseurs(sommetEnCours).size(); i++) {
+			
+		}
 		
 	}
 
@@ -78,12 +78,19 @@ public class PCCDijkstra {
 		List<String> listSuccesseurs = graphe.listSuccesseurs(sommetEnCours);
 		List<String> listSuccesseursNonParcourus = new ArrayList<String>(); 
 		for(int i = 0; i < listSuccesseurs.size(); i++) {
+			int k = 0;
 			for(int j = 0; j < listSommetsParcourus.size(); j++) {
-				if(listSuccesseurs.get(i) != listSommetsParcourus.get(j)) {
-					listSuccesseursNonParcourus.add(listSuccesseurs.get(i));
+				if(listSuccesseurs.get(i).equals(listSommetsParcourus.get(j))) {
+					break;
+				}
+				else {
+					k++;
 				}
 			}
-		}
+			if(k == listSommetsParcourus.size()) {
+				listSuccesseursNonParcourus.add(listSuccesseurs.get(i));
+			}
+		}	
 		return listSuccesseursNonParcourus;
 	}
 
