@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import graphes.IGraph;
 import util.Pair;
@@ -63,15 +64,36 @@ public class PCCDijkstra {
 	}
 
 	private String choisirProchainSommetEnCours(Map<String, Pair<String, Integer>> listSommetsDistance, List<String> listSommetsParcourus) {
-		// TODO Auto-generated method stub
-		return null;
+		Set<String> set = listSommetsDistance.keySet();
+		Iterator<String> itNoeud = set.iterator();
+		int plusPetit=0;
+		String plusPetitNoeud = null;
+		while(itNoeud.hasNext()) {
+			String noeud = itNoeud.next();
+			int d = listSommetsDistance.get(noeud).getValue();
+			if(! estDejaParcouru(noeud, listSommetsParcourus)) {
+				if( plusPetitNoeud == null || d < plusPetit) {
+					plusPetit = d;
+					plusPetitNoeud = noeud;
+				}
+			}
+		}
+		return plusPetitNoeud;
 	}
 
 	private void mettreAJourListSommetsDistance(Map<String, Pair<String, Integer>> listSommetsDistance, String sommetEnCours, List<String> listSuccesseursNonParcourus) {
-		for(int i = 0; i < graphe.listSuccesseurs(sommetEnCours).size(); i++) {
-			
+		for(int i = 0; i < listSuccesseursNonParcourus.size(); i++) {
+			int d = listSommetsDistance.get(sommetEnCours).getValue() + graphe.getValeur(sommetEnCours, listSuccesseursNonParcourus.get(i));
+			if(listSommetsDistance.get(listSuccesseursNonParcourus.get(i)) == null) {
+				Pair<String, Integer> p = new Pair<String, Integer>(sommetEnCours, d);
+				listSommetsDistance.put(listSuccesseursNonParcourus.get(i), p);
+			} else {
+				if(listSommetsDistance.get(listSuccesseursNonParcourus.get(i)).getValue() > d) {
+					Pair<String, Integer> p = new Pair<String, Integer>(sommetEnCours, d);
+					listSommetsDistance.put(listSuccesseursNonParcourus.get(i), p);
+				}
+			}
 		}
-		
 	}
 
 	private List<String> recupererSuccesseur(String sommetEnCours, List<String> listSommetsParcourus) {
@@ -105,33 +127,3 @@ public class PCCDijkstra {
 	
 	
 }
-
-
-
-
-
-
-
-//private String plusPetitSuccesseur(String n1, List<String> noeudsParcourus) {
-//List<String> successeurs = graphe.listSuccesseurs(n1);
-//if(successeurs.size() == 0) {
-//	return null;
-//}
-//int i = 0;
-//while(estDejaParcouru(successeurs.get(i), noeudsParcourus) && i < successeurs.size()) {
-//	i++;
-//}
-//if(i == successeurs.size()) {
-//	return null;
-//}
-//String plusPetitS = successeurs.get(i);
-//int plusPetitV = graphe.getValeur(n1, successeurs.get(i));
-//for(int j=i+1; j<successeurs.size(); j++) {
-//	int v = graphe.getValeur(n1, successeurs.get(j));
-//	if(v < plusPetitV && !estDejaParcouru(successeurs.get(j), noeudsParcourus)) {
-//		plusPetitV = v;
-//		plusPetitS = successeurs.get(j);
-//	}
-//}
-//return plusPetitS;	
-//}
