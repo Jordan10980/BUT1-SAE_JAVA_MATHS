@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import graphes.ihm.Arc;
 import graphes.ihm.GrapheImporter;
 
-class GraphImporterTest {
+class GrapheImporterTest {
 
 	@Test
 	void test() {
