@@ -50,7 +50,6 @@ public class Bellman implements IPCC {
 		}
 		
 		if(predecesseursBellman.get(sommetArrivee) == null)
-			//throw new NoPathEx("Pas de chemin entre " + sommetDepart + " et " + sommetArrivee );
 			throw new NoPathEx();
 		
 		int sommetEnCours = sommetArrivee;
