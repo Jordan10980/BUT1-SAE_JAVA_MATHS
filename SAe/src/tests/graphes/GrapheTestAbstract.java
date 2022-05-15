@@ -136,6 +136,33 @@ public abstract  class GrapheTestAbstract {
 		assert comparerList(successeurs, successeursAttendus);
 	
 	}
+
+	// @Test
+	protected void testListPredecesseur() {
+		IGraphe g = construireGraphe9Noeuds();
+
+		List<Integer> predecesseurs, predecesseursAttendus;
+
+		// On test les predecesseurs du noeud 8
+		predecesseursAttendus = new ArrayList<Integer>();
+		predecesseursAttendus.add(3);predecesseursAttendus.add(5);predecesseursAttendus.add(9);
+		predecesseurs = g.listPredecesseur(8);
+		assert comparerList(predecesseurs, predecesseursAttendus);
+
+		// On test les predecesseurs du noeud 7
+		predecesseursAttendus = new ArrayList<Integer>();
+		predecesseursAttendus.add(2);predecesseursAttendus.add(5);predecesseursAttendus.add(8);
+		predecesseurs = g.listPredecesseur(7);
+		assert comparerList(predecesseurs, predecesseursAttendus);
+
+		// On test les predecesseurs du noeud 1 (pas de predecesseurs)
+		predecesseursAttendus = new ArrayList<Integer>(); 
+		predecesseurs = g.listPredecesseur(1);
+		assert comparerList(predecesseurs, predecesseursAttendus);
+	
+	}
+
+	
 	
 	private boolean comparerList(List<Integer> successeurs, List<Integer> successeursAttendus) {
 		for(int noeud: successeurs) 

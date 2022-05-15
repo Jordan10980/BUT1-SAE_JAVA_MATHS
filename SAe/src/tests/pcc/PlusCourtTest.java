@@ -30,25 +30,25 @@ class PlusCourtTest {
 		listeFichiers.add("g-10-7.txt");
 		listeFichiers.add("g-10-8.txt");
 		listeFichiers.add("g-10-9.txt");
-		listeFichiers.add("g-10-10.txt");
+//		listeFichiers.add("g-10-10.txt");
 		
 		listeFichiers.add("g-100-1.txt");
 		listeFichiers.add("g-100-2.txt");
 		listeFichiers.add("g-100-3.txt");
 		listeFichiers.add("g-100-4.txt");
-		listeFichiers.add("g-100-5.txt");
+//		listeFichiers.add("g-100-5.txt");
 		
 		listeFichiers.add("g-1000-1.txt");
-		listeFichiers.add("g-1000-2.txt");
+//		listeFichiers.add("g-1000-2.txt");
 		
 		listeFichiers.add("g-10000-1.txt");
-		listeFichiers.add("g-10000-2.txt");
+//		listeFichiers.add("g-10000-2.txt");
 		
-		listeFichiers.add("g-100000-1.txt");
-		listeFichiers.add("g-100000-2.txt");
-		
-		listeFichiers.add("g-1000000-1.txt");
-		listeFichiers.add("g-1000000-2.txt");
+//		listeFichiers.add("g-100000-1.txt");
+//		listeFichiers.add("g-100000-2.txt");
+//		
+//		listeFichiers.add("g-1000000-1.txt");
+//		listeFichiers.add("g-1000000-2.txt");
 	}
 	
 	

@@ -2,6 +2,7 @@
 package graphes.types;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class GrapheLA extends Graphe{
@@ -62,6 +63,23 @@ public class GrapheLA extends Graphe{
 		for (Stub s : stubs)
 			successeurs.add(s.cible);		
 		return successeurs;
+	}
+
+	@Override
+	public List<Integer> listPredecesseur(int noeud) {
+		List<Integer> predecesseurs = new ArrayList<Integer>();
+		for (int i=0 ; i < la.length ; i++) {
+			List<Stub> stubs = la[i];
+			Iterator<Stub> it = stubs.iterator();
+			while(it.hasNext()) {
+				Stub stub = it.next();
+				if(stub.cible == noeud) {
+					predecesseurs.add(i+1);
+					break;
+				}
+			}
+		}
+		return predecesseurs;
 	}
 
 	@Override

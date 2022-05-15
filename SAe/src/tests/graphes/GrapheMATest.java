@@ -27,6 +27,10 @@ class GrapheMATest extends GrapheTestAbstract{
 		super.testListSuccesseur();
 	}
 
+	@Test
+	protected void testListPredecesseur() {
+		super.testListPredecesseur();
+	}
 	
 	@Override
 	protected IGraphe getGraphe(int nbSommet) {

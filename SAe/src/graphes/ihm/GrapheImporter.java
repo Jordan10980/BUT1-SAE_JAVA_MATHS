@@ -11,11 +11,12 @@ import exceptions.NoPathEx;
 import graphes.IGraphe;
 import graphes.IPCC;
 import graphes.types.GrapheLA;
+import pcc.Bellman;
 import pcc.Dijkstra;
 
 public class GrapheImporter {
 	public static void main(String[] args) throws NumberFormatException, FileNotFoundException, IOException {
-		String fileName = "graphes/ac/g-10-1.txt";
+		String fileName = "graphes/ac/g-100-4.txt";
 		System.out.println();
 		/*if (args.length != 1) 
 			fileName = "graphe1.txt";
@@ -38,6 +39,31 @@ public class GrapheImporter {
 		//afficherExo31();
 		//verifierGraphes();
 	}
+
+//	public static void main(String[] args) throws NumberFormatException, FileNotFoundException, IOException {
+//		String fileName = "graphes/sc/g-100-4.txt";
+//		System.out.println();
+//		/*if (args.length != 1) 
+//			fileName = "graphe1.txt";
+//		else fileName = args[0];*/
+//		System.out.println("filename = "+ fileName);
+//		Arc df = new Arc();
+//		IGraphe g = importer(fileName, df);
+//		System.out.print(g);
+//		System.out.println("debut fin : "+ df.getSource() + " ==> "+ df.getDestination());
+//		
+//		IPCC pcc = new Bellman();
+//		ArrayList<Integer> chemin = new ArrayList<>();
+//		int distance = pcc.pc(g, df.getSource(), df.getDestination(), chemin);
+//		
+//		System.out.println("Bellman sans circuit");
+//		System.out.println(distance);
+//		for (int s : chemin)
+//			System.out.print(s + " ");
+//		System.out.println();
+//		//afficherExo31();
+//		//verifierGraphes();
+//	}
 	
 	/**
 	 * Affiche le résultat sous le format attendu

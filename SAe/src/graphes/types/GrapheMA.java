@@ -54,6 +54,17 @@ public class GrapheMA extends Graphe{
 	}
 
 	@Override
+	public List<Integer> listPredecesseur(int noeud) {
+		List<Integer> predecesseurs = new ArrayList<Integer>();
+		for(int i =0; i< ma.length ; i++) {
+			if(ma[i][noeud-1] != INFINI) 
+				predecesseurs.add(i+1);
+		}
+		return predecesseurs;
+	}
+
+
+	@Override
 	public int distance(List<Integer> cheminCalcule) {
 		assert cheminCalcule != null;
 		assert cheminCalcule.size() > 0;
