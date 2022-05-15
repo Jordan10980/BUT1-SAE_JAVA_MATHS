@@ -124,9 +124,11 @@ public class GrapheImporter {
 		IGraphe g;
 		g = GrapheImporter.importer(fichierGraphe, df);
 		try {
+			long timestampDebut = System.currentTimeMillis();
 			int distanceCalculee = algo.pc(g, df.getSource(), df.getDestination(), cheminCalcule);
+			long timestampFin = System.currentTimeMillis();
 			int distanceAttendue = GrapheImporter.importerReponse(fichierReponse, cheminPossible);
-			System.out.println(fichierGraphe + " vs " +  fichierReponse);
+			System.out.println(fichierGraphe + " vs " +  fichierReponse + " (temps: " + (timestampFin-timestampDebut)  + " ms)");
 			System.out.println("Chemin possible : "+ cheminToString(cheminPossible));
 			System.out.println("Chemin calcule : "+ cheminToString(cheminCalcule));
 			System.out.println("Distance attendue : " + distanceAttendue);
