@@ -8,6 +8,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.TreeMap;
 
+import exceptions.NoPathEx;
 import graphes.IGraphe;
 import graphes.IPCC;
 
@@ -48,6 +49,10 @@ public class Bellman implements IPCC {
 			if(sommetEnCours == sommetArrivee) break;
 		}
 		
+		if(predecesseursBellman.get(sommetArrivee) == null)
+			//throw new NoPathEx("Pas de chemin entre " + sommetDepart + " et " + sommetArrivee );
+			throw new NoPathEx();
+		
 		int sommetEnCours = sommetArrivee;
 		while(sommetEnCours !=  sommetDepart) {
 			cheminPlusCourt.add(0, sommetEnCours);
@@ -86,30 +91,7 @@ public class Bellman implements IPCC {
 				nbPredecesseurParSommet.remove(sommet);
 			}
 		}
-			
-		
-//		Map<Integer,List<Integer>> sommetParNbPredecesseur = new TreeMap<Integer,List<Integer>>();
-//		for(int i=0 ; i < graphe.getNbSommets(); i++) {
-//			int sommetEnCours = i+1;
-//			int nbPredecesseur = graphe.listPredecesseur(sommetEnCours).size();
-//			List<Integer> listeSommet = sommetParNbPredecesseur.get(nbPredecesseur);
-//			if(listeSommet == null) {
-//				listeSommet = new ArrayList<Integer>();
-//				sommetParNbPredecesseur.put(nbPredecesseur, listeSommet);
-//			}
-//			listeSommet.add(sommetEnCours);
-//		}
-//		
-//		List<Integer> ordreTopologique = new ArrayList<Integer>();
-//		Iterator<Entry<Integer,List<Integer>>> itEntrySet = sommetParNbPredecesseur.entrySet().iterator();
-//		while (itEntrySet.hasNext()) {
-//			Entry<Integer,List<Integer>> entry = itEntrySet.next();
-//			List<Integer> listSommets = entry.getValue();
-//			for(int sommet: listSommets) {
-//				ordreTopologique.add(sommet);
-//			}
-//		}
-		
+				
 		return ordreTopologique;
 	}
 }
