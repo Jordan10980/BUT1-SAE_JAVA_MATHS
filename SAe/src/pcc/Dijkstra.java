@@ -52,13 +52,14 @@ public class Dijkstra implements IPCC {
 		// On reparcours le tableau de Dijsktra en partant du sommet d'arrivée jusqu'au sommet de départ 
 		// pour reconstituer le chemin le plus cours
 		sommetEnCours = sommetArrivee;
+		cheminPlusCourt.add(0, sommetEnCours);
 		while(sommetEnCours != sommetDepart) {
 			int predecesseur = recupererPredecesseur(sommetEnCours, listSommetsDistance);
 			cheminPlusCourt.add(0, predecesseur);
 			sommetEnCours = predecesseur;
 		}
 		
-		return 0;
+		return listSommetsDistance.get(sommetArrivee).getValue();
 	}
 	
 	/**
