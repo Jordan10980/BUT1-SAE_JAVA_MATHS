@@ -8,6 +8,7 @@ import java.util.Map;
 import java.util.Set;
 
 import graphes.IGraphe;
+import exceptions.NoPathEx;
 import graphes.IPCC;
 import util.Pair;
 
@@ -36,15 +37,26 @@ public class Dijkstra implements IPCC {
 		
 		// Tant que le sommet en cours n'est pas le sommet d'arrivee, on poursuit l'algorithme de Dijkstra
 		while(sommetEnCours != sommetArrivee) {
+			
 			// On récupère les sucesseurs du noeud en cours en excluant ceux par lequel on est déjà passé
 			List<Integer> listSuccesseursNonParcourus = recupererSuccesseur(graphe, sommetEnCours, listSommetsParcourus);
-
+			
+			//revoie un exception si le programme n'arrive pas à trouver de pcc
+			
+			//if(listSuccesseursNonParcourus.size() == 0) {
+			//	throw new Error("pas de chemin trouvé");
+			//}
+			
 			// On met à jout le tableau de disktra pour les successeurs trouvés
 			mettreAJourListSommetsDistance(graphe, listSommetsDistance, sommetEnCours, listSuccesseursNonParcourus);
 			
 			// A l'aide du tableau de dijkstra, on sélectionne le prochain sommet en cours parmis les noeuds non encore parcouru 
 			sommetEnCours = choisirProchainSommetEnCours(listSommetsDistance, listSommetsParcourus);
-
+			
+			if(sommetEnCours == -1) {
+				throw new NoPathEx();
+			}
+			
 			// On ajoute le nouveau sommet en cours dans la liste des sommets parcourus
 			mettreAJourlistSommetsParcourus(listSommetsParcourus,sommetEnCours);
 		}

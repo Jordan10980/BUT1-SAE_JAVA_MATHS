@@ -16,7 +16,7 @@ import pcc.Dijkstra;
 
 public class GrapheImporter {
 	public static void main(String[] args) throws NumberFormatException, FileNotFoundException, IOException {
-		String fileName = "graphes/ac/g-100-4.txt";
+		String fileName = "graphes/ac/g-10-10.txt";
 		System.out.println();
 		/*if (args.length != 1) 
 			fileName = "graphe1.txt";
